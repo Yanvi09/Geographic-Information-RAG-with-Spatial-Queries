@@ -1,0 +1,7 @@
+geopandas
+shapely
+folium
+sentence-transformers
+chromadb
+openai
+streamlit
