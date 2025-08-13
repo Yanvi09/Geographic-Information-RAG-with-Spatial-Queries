@@ -5,3 +5,4 @@ sentence-transformers
 chromadb
 openai
 streamlit
+pillow

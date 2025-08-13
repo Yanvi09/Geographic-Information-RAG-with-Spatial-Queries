@@ -1,5 +1,77 @@
-{
-  "paris": "Paris is the capital of France, located on the Seine River. Famous landmarks include the Eiffel Tower.",
-  "london": "London is the capital of the UK, located on the Thames River. Famous landmarks include the Big Ben and London Eye.",
-  "newyork": "New York City is in the United States, located on the Hudson River. Famous landmarks include Times Square and Statue of Liberty."
-}
+[
+    {
+        "id": "1",
+        "title": "Ganges River",
+        "description": "A 2,525 km river in India and Bangladesh, sacred in Hinduism and vital for agriculture."
+    },
+    {
+        "id": "2",
+        "title": "Yangtze River",
+        "description": "Asia's longest river (6,300 km) flowing through China, home to the Three Gorges Dam."
+    },
+    {
+        "id": "3",
+        "title": "Mekong River",
+        "description": "Flows through six Asian countries, supporting fishing, rice farming, and biodiversity."
+    },
+    {
+        "id": "4",
+        "title": "Nile River",
+        "description": "World's longest river (6,650 km) running through 11 African countries into the Mediterranean."
+    },
+    {
+        "id": "5",
+        "title": "Amazon River",
+        "description": "South America's largest river by discharge, surrounded by vast rainforest ecosystems."
+    },
+    {
+        "id": "6",
+        "title": "Mount Everest",
+        "description": "Highest mountain on Earth (8,848 m) on the Nepal–China border, part of the Himalayas."
+    },
+    {
+        "id": "7",
+        "title": "Sahara Desert",
+        "description": "Largest hot desert in the world, spanning over 9 million km² in North Africa."
+    },
+    {
+        "id": "8",
+        "title": "Great Wall of China",
+        "description": "21,000 km ancient fortification protecting China's northern borders."
+    },
+    {
+        "id": "9",
+        "title": "Sydney Opera House",
+        "description": "Iconic UNESCO World Heritage site in Australia, famous for its sail-shaped design."
+    },
+    {
+        "id": "10",
+        "title": "Eiffel Tower",
+        "description": "Paris landmark built in 1889, standing 324 m tall and visited by millions annually."
+    },
+    {
+        "id": "11",
+        "title": "Victoria Falls",
+        "description": "Waterfall on the Zambezi River at the border of Zambia and Zimbabwe, 'Smoke that Thunders'."
+    },
+    {
+        "id": "12",
+        "title": "Mount Kilimanjaro",
+        "description": "Africa's highest peak (5,895 m) in Tanzania, a dormant volcano with glacier caps."
+    },
+    {
+        "id": "13",
+        "title": "Statue of Liberty",
+        "description": "Gift from France to the USA in 1886, symbolizing freedom, located in New York Harbor."
+    },
+    {
+        "id": "14",
+        "title": "Machu Picchu",
+        "description": "15th-century Inca citadel in Peru, set high in the Andes Mountains."
+    },
+    {
+        "id": "15",
+        "title": "Antarctic Ice Sheet",
+        "description": "Largest single mass of ice on Earth, covering about 98% of Antarctica."
+    }
+]
