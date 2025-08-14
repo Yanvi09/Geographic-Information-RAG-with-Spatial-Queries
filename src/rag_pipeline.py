@@ -3,19 +3,19 @@ import sys
 import os
 import time
 
-# ----------------- Fix imports for scripts and package ----------------- #
-# Add scripts folder to path for EmbeddingStore
-sys.path.append(os.path.join(os.path.dirname(os.path.dirname(__file__)), "scripts"))
+# ----------------- Fix imports for scripts ----------------- #
+sys.path.append(os.path.join(os.path.dirname(__file__), "..", "scripts"))
 from embeddings_store import EmbeddingStore
 
-# Use relative import for spatial_queries within src package
-from .spatial_queries import (
+# ----------------- Import spatial queries ----------------- #
+from spatial_queries import (
     point_in_polygon, nearest_feature, features_in_bbox,
     cities_gdf, rivers_gdf, cities_idx, rivers_idx
 )
 
 # ----------------- Utility functions ----------------- #
 def slow_print(text, delay=0.02):
+    """Print text with a small delay for a polished effect."""
     for c in text:
         print(c, end="", flush=True)
         time.sleep(delay)
@@ -39,26 +39,41 @@ class RAGPipeline:
             meta = self.store.metadata.get(identifier, {})
             title = meta.get("title", identifier)
             desc = meta.get("description", "")
-            results.append(f"{title}: {desc} (score: {score:.4f})")
+            results.append((title, desc, score))
         return results
+
+    def annotate_spatial(self, results, query):
+        """Highlight nearest rivers or cities mentioned in query."""
+        annotated = []
+        query_lower = query.lower()
+        for title, desc, score in results:
+            highlight = ""
+            # Check for city mentions
+            for city in cities_gdf["name"]:
+                if city.lower() in query_lower:
+                    highlight = f"✅ Near {city}"
+                    break
+            # Check for river mentions if no city
+            if not highlight:
+                for river in rivers_gdf["name"]:
+                    if river.lower() in query_lower:
+                        highlight = f"✅ Close to {river}"
+                        break
+            annotated.append(f"{title}: {desc} (score: {score:.4f}) {highlight}".strip())
+        return annotated
 
 # ----------------- Main Execution ----------------- #
 if __name__ == "__main__":
     divider()
-    slow_print("🌐 Welcome to the Geographic RAG Demo \n", delay=0.01)
+    slow_print("🌐 Welcome to the Geographic RAG Demo\n", delay=0.01)
+    
     query_text = input("Enter your query (e.g., 'rivers near Delhi'): ").strip()
     if not query_text:
         query_text = "Tell me about rivers in Asia near Delhi"
 
     pipeline = RAGPipeline()
     retrieved_results = pipeline.query(query_text)
-
-    annotated_results = []
-    for res in retrieved_results:
-        if "Ganges" in res or "Yamuna" in res:
-            annotated_results.append(f"{res} ✅ Near Delhi")
-        else:
-            annotated_results.append(res)
+    annotated_results = pipeline.annotate_spatial(retrieved_results, query_text)
 
     divider()
     slow_print(">> Generated Answer:", delay=0.01)
@@ -68,6 +83,7 @@ if __name__ == "__main__":
     slow_print(f"\n(Query: {query_text})")
     divider()
 
+    # ----------------- Spatial Tests ----------------- #
     slow_print(">> Test 1: Point in polygon (Delhi area):")
     cities_found = point_in_polygon(28.6139, 77.2090, cities_gdf, buffer=0.01)
     slow_print(str(cities_found))
