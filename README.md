@@ -1,7 +1,7 @@
 
 # 🌍 GeoRAG Intelligence Demo — Environmental & Urban Planning AI
 A next-generation application for environmental monitoring, disaster planning, and smart city development.  
-Combines 3D geospatial visualization, geospatial intelligence, and AI-driven semantic search to help planners, researchers, and policy-makers make data-driven decisions.
+Combines geospatial visualization, geospatial intelligence, and AI-driven semantic search to help planners, researchers, and policy-makers make data-driven decisions.
 
 Deployment-Link: https://github.com/Yanvi09/Geographic-Information-RAG-with-Spatial-Queries
 
@@ -24,7 +24,7 @@ Backend (Python)
 ->Streamlit — web UI for backend visualization.
 ->Pillow — image processing utilities.
 
-3. `Project Structure
+3. ```Project Structure
    project-root/
 │
 ├── frontend/                # React Three Fiber app
@@ -42,7 +42,7 @@ Backend (Python)
 │   ├── requirements.txt     # Python dependencies
 │   └── utils/               # Helper scripts
 │
-└── README.md`
+└── README.md  ```
 
 4. Installation
 Frontend
@@ -118,5 +118,6 @@ For public deployment, you can use:
 ->Optional Axios for API calls.
 ->WebSocket support for real-time AI and map updates.
 ->Additional 3D asset pipeline integration.  
+
 
 
