@@ -3,17 +3,16 @@ import sys
 import os
 import time
 
-# ----------------- Fix imports for scripts ----------------- #
+
 sys.path.append(os.path.join(os.path.dirname(__file__), "..", "scripts"))
 from embeddings_store import EmbeddingStore
 
-# ----------------- Import spatial queries ----------------- #
-from spatial_queries import (
+
+from src.spatial_queries import (
     point_in_polygon, nearest_feature, features_in_bbox,
     cities_gdf, rivers_gdf, cities_idx, rivers_idx
 )
 
-# ----------------- Utility functions ----------------- #
 def slow_print(text, delay=0.02):
     """Print text with a small delay for a polished effect."""
     for c in text:
@@ -24,7 +23,6 @@ def slow_print(text, delay=0.02):
 def divider():
     print("\n" + "-"*60 + "\n")
 
-# ----------------- RAG Pipeline ----------------- #
 class RAGPipeline:
     def __init__(self):
         self.store = EmbeddingStore("embeddings_store.json")
@@ -53,7 +51,7 @@ class RAGPipeline:
                 if city.lower() in query_lower:
                     highlight = f"✅ Near {city}"
                     break
-            # Check for river mentions if no city
+         
             if not highlight:
                 for river in rivers_gdf["name"]:
                     if river.lower() in query_lower:
@@ -62,7 +60,7 @@ class RAGPipeline:
             annotated.append(f"{title}: {desc} (score: {score:.4f}) {highlight}".strip())
         return annotated
 
-# ----------------- Main Execution ----------------- #
+
 if __name__ == "__main__":
     divider()
     slow_print("🌐 Welcome to the Geographic RAG Demo\n", delay=0.01)

@@ -9,56 +9,51 @@ import MapPanel from "./components/MapPanel";
 
 import { fetchResults } from "./utils/api";
 
-export default function App() {
+export default function App(){
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
   const [center, setCenter] = useState(null);
+  const [markers, setMarkers] = useState([]);
 
-  const handleSearch = async (payload) => {
+  const handleSearch = async (payload)=>{
     setLoading(true);
-    try {
-      const res = await fetchResults(payload); // mocked for now
-      if (res.ok) {
-        setResults(res.data);
-        setCenter(res.center);
-      } else {
-        setResults([]);
-        setCenter(null);
-      }
-    } catch (e) {
-      console.error(e);
+    const res = await fetchResults(payload);
+    if(res.ok){
+      setResults(res.data);
+      setCenter(res.center);
+      setMarkers(res.markers);
+    } else {
       setResults([]);
       setCenter(null);
-    } finally {
-      setLoading(false);
+      setMarkers([]);
     }
+    setLoading(false);
   };
 
   return (
     <div className="page">
-      <Header />
+      <Header/>
 
       <div className="hero">
-        <h2>Geographic Intelligence</h2>
+        <h2>AI-Powered Geographic Intelligence</h2>
         <p>
-          Combine satellite imagery, geographic databases, and AI to analyze
-          spatial relationships and extract location-based insights.
+          Combine satellite imagery, geographic databases, and AI to analyze spatial relationships
+          and extract location-based insights.
         </p>
-        <FeatureCards />
+        <FeatureCards/>
       </div>
 
       <div className="main">
-        <MapPanel results={results} center={center} />
+        <MapPanel results={results} center={center} markers={markers}/>
         <div className="right">
-          <QueryPanel onSearch={handleSearch} loading={loading} />
-          <div style={{ height: 12 }} />
-          <ResultPanel results={results} />
+          <QueryPanel onSearch={handleSearch} loading={loading}/>
+          <div style={{height:12}}/>
+          <ResultPanel results={results}/>
         </div>
       </div>
 
       <div className="footer">
-        Built with Curosity—{" "}
-        <b style={{ color: "var(--gold)" }}>Powered By</b> Anvi Yadav - CS Major 
+        Built by Curosity — <b style={{color:"var(--gold)"}}></b> Powered By: Anvi Yadav-CS Major.
       </div>
     </div>
   );

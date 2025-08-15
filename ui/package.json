@@ -2,6 +2,7 @@
   "name": "geo-rag-ui",
   "version": "1.0.0",
   "private": true,
+  "proxy": "http://127.0.0.1:8000",
   "dependencies": {
     "leaflet": "^1.9.4",
     "react": "^18.2.0",

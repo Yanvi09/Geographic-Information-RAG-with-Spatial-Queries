@@ -49,7 +49,6 @@ def features_in_bbox(min_lat, min_lon, max_lat, max_lon, gdf):
     return matches["name"].tolist() if "name" in gdf else matches["id"].tolist()
 
 
-# ------------------ Xiao Nai-style Tests ------------------ #
 if __name__ == "__main__":
     print(">> Test 1: Point in polygon (should match a city):")
     cities_found = point_in_polygon(28.6139, 77.2090, cities_gdf, buffer=0.01)
