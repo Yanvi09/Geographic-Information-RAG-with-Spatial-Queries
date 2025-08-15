@@ -24,7 +24,8 @@ Backend (Python)
 ->Streamlit — web UI for backend visualization.
 ->Pillow — image processing utilities.
 
-3. ```Project Structure
+3. Project Structure
+```
    project-root/
 │
 ├── frontend/                # React Three Fiber app
@@ -42,9 +43,11 @@ Backend (Python)
 │   ├── requirements.txt     # Python dependencies
 │   └── utils/               # Helper scripts
 │
-└── README.md  ```
+└── README.md
+```
 
-4. Installation
+
+5. Installation
 Frontend
 cd frontend
 npm install
@@ -118,6 +121,7 @@ For public deployment, you can use:
 ->Optional Axios for API calls.
 ->WebSocket support for real-time AI and map updates.
 ->Additional 3D asset pipeline integration.  
+
 
 
 
