@@ -3,36 +3,28 @@
 A next-generation application for environmental monitoring, disaster planning, and smart city development.  
 Combines 3D geospatial visualization, geospatial intelligence, and AI-driven semantic search to help planners, researchers, and policy-makers make data-driven decisions.
 
+Deployment-Link: https://github.com/Yanvi09/Geographic-Information-RAG-with-Spatial-Queries
+
 2. Tech Stack
 Frontend
 
-React + Vite — fast, modular frontend setup.
-
-@react-three/fiber — React renderer for three.js.
-
-@react-three/drei — ready-to-use helpers for 3D scenes.
-
-three.js — industry-standard WebGL 3D graphics library.
+->React + Vite — fast, modular frontend setup.
+->@react-three/fiber — React renderer for three.js.
+->@react-three/drei — ready-to-use helpers for 3D scenes.
+->three.js — industry-standard WebGL 3D graphics library.
 
 Backend (Python)
 
-GeoPandas — geospatial data analysis.
+->GeoPandas — geospatial data analysis.
+=->Shapely — geometric operations.
+->Folium — interactive maps.
+->Sentence Transformers — embedding generation for semantic search.
+->ChromaDB — vector database for fast similarity queries.
+->OpenAI API — natural language understanding & generation.
+->Streamlit — web UI for backend visualization.
+->Pillow — image processing utilities.
 
-Shapely — geometric operations.
-
-Folium — interactive maps.
-
-Sentence Transformers — embedding generation for semantic search.
-
-ChromaDB — vector database for fast similarity queries.
-
-OpenAI API — natural language understanding & generation.
-
-Streamlit — web UI for backend visualization.
-
-Pillow — image processing utilities.
-
-3. Project Structure
+3. `Project Structure
    project-root/
 │
 ├── frontend/                # React Three Fiber app
@@ -50,7 +42,7 @@ Pillow — image processing utilities.
 │   ├── requirements.txt     # Python dependencies
 │   └── utils/               # Helper scripts
 │
-└── README.md
+└── README.md`
 
 4. Installation
 Frontend
@@ -76,14 +68,14 @@ Frontend (package.json)
 }
 
 7.Backend (requirements.txt)
-geopandas
-shapely
-folium
-sentence-transformers
-chromadb
-openai
-streamlit
-pillow
+->geopandas
+->shapely
+->folium
+->sentence-transformers
+->chromadb
+->openai
+->streamlit
+->pillow
 
 7.1. Environment Variables
 
@@ -112,9 +104,8 @@ npm run dev
 
 9.Access:
 
-Frontend: http://localhost:5173
-
-Backend (Streamlit): http://localhost:8501
+->Frontend: http://localhost:5173
+->Backend (Streamlit): http://localhost:8501
 
 10.## Deployment
 For public deployment, you can use:
@@ -123,10 +114,9 @@ For public deployment, you can use:
 
 11. Future Enhancements
 
-Optional TailwindCSS for UI styling.
+->Optional TailwindCSS for UI styling.
+->Optional Axios for API calls.
+->WebSocket support for real-time AI and map updates.
+->Additional 3D asset pipeline integration.  
 
-Optional Axios for API calls.
 
-WebSocket support for real-time AI and map updates.
-
-Additional 3D asset pipeline integration.  
